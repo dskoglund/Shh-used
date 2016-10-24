@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Shh-used</title>
+    <link rel="stylesheet" href="default.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <div ng-app="shop">
+      <div ng-controller="HomeController as home">
+        <h1>{{ home.message }}</h1>
+        <ul>
+          <li
+            ng-repeat="shoes in home.shoesList"
+            {{ shoes.brand }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="default.js"></script>
+  </body>
+</html>

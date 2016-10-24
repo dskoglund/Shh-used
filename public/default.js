@@ -7,7 +7,7 @@ HomeController.$inject = ['shoesData']
 function HomeController(shoesData) {
 
   const vm = this
-  const shoesList = [{}]
+  const shoesList = []
   const cart = []
 
   vm.message = "SHH-USED: For Sneakerheads on a Budget"
@@ -29,6 +29,6 @@ function shoesData($http) {
   }
 
   function loadAll() {
-    return $http.get('./').then(res => res.data)
+    return $http.get('./shoe').then(res => res.data)
   }
 }

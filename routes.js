@@ -2,11 +2,11 @@ const Router = require('express').Router
 const assert = require('assert')
 
 const appRouter = function(db) {
-  const shoes = db.collection('shoes')
+  const shoe = db.collection('shoe')
   const router = new Router()
 
-  router.get('/shoes', (req, res) => {
-    shoes.find().toArray((err, docs) => {
+  router.get('/', (req, res) => {
+    shoe.find().toArray((err, docs) => {
       if(err) {
         return res.sendStatus(500)
       }
@@ -15,7 +15,7 @@ const appRouter = function(db) {
   })
 
   router.post('/', (req, res) => {
-    shoes.insertOne(req.body, (err, result) => {
+    shoe.insertOne(req.body, (err, result) => {
       if(err) {
         return res.sendStatus(500)
       }
@@ -24,7 +24,7 @@ const appRouter = function(db) {
   })
 
   router.delete('/:_id', (req, res) => {
-    shoes.deleteOne({ "task": req.params.task }, (err, result) => {
+    shoe.deleteOne({ "task": req.params.task }, (err, result) => {
       if(err) {
         return res.sendStatus(500)
       }
@@ -33,7 +33,7 @@ const appRouter = function(db) {
   })
 
   router.put('/shoe/:shoeId', (req, res) => {
-    shoes.updateOne({ "name": req.params.name }, { $set: req.body }, (err, result) => {
+    shoe.updateOne({ "name": req.params.name }, { $set: req.body }, (err, result) => {
       if(err) {
         return res.sendStatus(500)
       }

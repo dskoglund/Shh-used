@@ -15,7 +15,6 @@ function HomeController(shoesData) {
   vm.cart = cart
   vm.shoesList = shoesList
 
-
   shoesData.loadAll().then(shoesList => {
     vm.shoesList = shoesList
   })
@@ -26,6 +25,7 @@ app.factory('shoesData', shoesData)
 shoesData.$inject = ['$http']
 
 function shoesData($http) {
+
   return {
     loadAll
   }
@@ -34,7 +34,4 @@ function shoesData($http) {
     return $http.get('./shoes').then(res => res.data)
   }
 
-  function searchBy() {
-    return $http.get('./shoes').then(res => res.data)
-  }
 }

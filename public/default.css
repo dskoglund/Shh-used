@@ -1,0 +1,18 @@
+#jumbo {
+  text-align: center;
+  background-image: url('Jumbobg.jpg');
+  height: 450px;
+}
+
+#logo {
+  color: yellow;
+}
+
+#slogan {
+  color: white;
+}
+
+.list{
+  font-size: 50px;
+  color: blue
+}

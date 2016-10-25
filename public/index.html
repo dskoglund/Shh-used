@@ -3,16 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>Shh-used</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="default.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
     <div ng-app="shop">
       <div ng-controller="HomeController as home">
-        <h1>{{ home.message }}</h1>
+        <div id="jumbo" class="jumbotron">
+          <h1 id="logo" class="">{{ home.logo }}</h1>
+          <h2 id="slogan" class="">{{ home.slogan }}</h2>
+          <form>
+            <input ng-model="search.$">
+          </form>
+        </div>
         <ul>
           <li
-            ng-repeat="shoe in home.shoesList"
-            {{ shoe }}
+            ng-repeat="shoes in home.shoesList | filter:search:strict">
+            Brand: {{ shoes.brand }} Name: {{shoes.name}} Size: {{shoes.size}} Price: ${{shoes.price}}
           </li>
         </ul>
       </div>

@@ -10,9 +10,11 @@ function HomeController(shoesData) {
   const shoesList = []
   const cart = []
 
-  vm.message = "SHH-USED: For Sneakerheads on a Budget"
+  vm.logo = "SHH-Used"
+  vm.slogan = "For Sneakerheads on a Budget"
   vm.cart = cart
   vm.shoesList = shoesList
+
 
   shoesData.loadAll().then(shoesList => {
     vm.shoesList = shoesList
@@ -29,6 +31,10 @@ function shoesData($http) {
   }
 
   function loadAll() {
-    return $http.get('./shoe').then(res => res.data)
+    return $http.get('./shoes').then(res => res.data)
+  }
+
+  function searchBy() {
+    return $http.get('./shoes').then(res => res.data)
   }
 }

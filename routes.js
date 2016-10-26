@@ -6,10 +6,8 @@ const appRouter = function(db) {
   const router = new Router()
 
   router.get('/', (req, res) => {
-    shoes.find({}).toArray((err, docs) => {
-      if(err) {
-        return res.sendStatus(500)
-      }
+    shoes.find().toArray((err, docs) => {
+      if(err) return next(err)
       res.json(docs)
     })
   })

@@ -9,6 +9,9 @@
     "test": "mocha",
     "tdd": "mocha -w -R nyan"
   },
+  "engines": {
+    "node" : ">=6.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dskoglund/ShopSpot.git"

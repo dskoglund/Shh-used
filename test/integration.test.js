@@ -45,17 +45,13 @@ describe('Shoes API', () => {
   })
 
   describe('GET /shoes', () => {
-
     it('returns a list of shoes', done => {
       request.get(TEST_URI + '/shoes', { json: true }, (err, res, body) => {
         expect(err).to.be.null
         expect(res).to.have.property('statusCode', 200)
-        expect(body).to.have.lengthOf(4)
+        expect(body).to.have.lengthOf(2)
         done()
       })
     })
-
   })
-
 })
-Contact GitHub API Training Shop Blog About

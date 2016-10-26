@@ -19,7 +19,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   const app = createApp(db)
 
   app.listen(PORT, () => {
-  NODE_ENV !== 'production' &&
-  console.log('listening......on '+ PORT)
+    NODE_ENV !== 'production' &&
+    console.log('listening......on '+ PORT)
   })
 })

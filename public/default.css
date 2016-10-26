@@ -1,18 +1,33 @@
+/*jumbotron style */
 #jumbo {
   text-align: center;
   background-image: url('Jumbobg.jpg');
-  height: 450px;
+  height: 775px;
+  background-position: center;
 }
-
 #logo {
   color: yellow;
 }
-
 #slogan {
   color: white;
 }
 
-.list{
-  font-size: 50px;
-  color: blue
+/* shoes list display */
+#shoe-description {
+  border-style: groove;
+  border-color: black;
+}
+#shoe-brand {
+  color: blue;
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+#shoe-name {
+
+}
+#shoe-size {
+
+}
+#shoe-price {
+  font-weight: 900;
 }

@@ -16,10 +16,14 @@
             <input ng-model="search.$">
           </form>
         </div>
-        <ul>
+        <ul ng-submit="home.fillCart()" style="list-style: none;">
           <li
-            ng-repeat="shoes in home.shoesList | filter:search:strict">
-            Brand: {{ shoes.brand }} Name: {{shoes.name}} Size: {{shoes.size}} Price: ${{shoes.price}}
+            class="col-md-3" id="shoe-description" ng-repeat="shoes in home.shoesList | filter:search:strict">
+            <h2 id="shoe-brand"> {{ shoes.brand }} </h2>
+            <h3 id="shoe-name"> {{shoes.name}} </h3>
+            <h4 id="shoe-size"> Size: {{shoes.size}} </h4>
+            <h5 id="shoe-price"> Price: ${{shoes.price}} </h5>
+            <input type="submit" name="name" value="Add to cart">
           </li>
         </ul>
       </div>

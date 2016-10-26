@@ -33,5 +33,9 @@ function shoesData($http) {
   function loadAll() {
     return $http.get('./shoes').then(res => res.data)
   }
+  function fillCart() {
+    console.log(cart)
+    return $http.post('./cart', cart).then(res => res.data)
+  }
 
 }

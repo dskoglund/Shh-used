@@ -1,0 +1,20 @@
+{
+  "name": "shopspot",
+  "description": "A shopping site",
+  "main": "index.js",
+  "authors": [
+    "David Skoglund"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/dskoglund/ShopSpot",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ngCart": "ngcart#^1.0.0"
+  }
+}

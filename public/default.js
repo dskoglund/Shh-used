@@ -9,6 +9,8 @@ function HomeController(shoesData, $scope) {
   const vm = this
   const shoesList = []
   const cart = []
+  const ammount = ""
+
 
   vm.cart = cart
   vm.logo = "SHH-Used"
@@ -16,18 +18,24 @@ function HomeController(shoesData, $scope) {
   vm.shoesList = shoesList
 
   shoesData.loadAll().then(shoesList => {
-    console.log('loaded')
     vm.shoesList = shoesList
   })
 
-  $scope.addToCart = function(shoe) {
+  $scope.addToCart = function() {
+    const shoe = this.shoe
     vm.cart.push(angular.copy(shoe));
-    vm.ammount += shoe.price
-    console.log(shoe)
+    const shoeToBeRemoved = vm.shoesList.indexOf(shoe)
+    vm.shoesList.splice(shoeToBeRemoved, 1)
   }
 
+  $scope.removeFromCart = function() {
+    console.log('working')
+    const item = this.item
+    const itemToBeRemoved = vm.cart.indexOf(item)
+    vm.cart.splice(itemToBeRemoved, 1)
+    vm.shoesList.push(angular.copy(item))
+  }
 }
-
 app.factory('shoesData', shoesData)
 
 shoesData.$inject = ['$http']

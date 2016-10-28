@@ -27,19 +27,25 @@
             <div>
               <img src="{{ 'assets/' + shoe.image }}" alt="{{shoe.name + 'Image'}}" />
               <h2 id="shoe-brand"> {{ shoe.brand }} </h2>
-              <h3 id="shoe-name"> {{shoe.name}} </h3>
-              <h4 id="shoe-size"> Size: {{shoe.size}} </h4>
-              <h5 id="shoe-price"> Price: ${{shoe.price}} </h5>
-              <button ng-click="addToCart(this.shoe)">Add to Cart</button>
+              <h3 id="shoe-name"> {{ shoe.name }} </h3>
+              <h4 id="shoe-size"> Size: {{ shoe.size }} </h4>
+              <h5 id="shoe-price"> Price: ${{ shoe.price }} </h5>
+              <button ng-click="addToCart(this.shoe)"> Add to Cart </button>
             </div>
           </li>
         </ul>
         <div>
           <ul>
             <li ng-repeat="item in home.cart">
-              {{item.name}}
+              {{ item.name }}
+              {{ item.price }}
+              <button ng-click="removeFromCart(this.item)">Remove From Cart</button>
             </li>
           </ul>
+          <div ng-show="!!home.total">
+              {{ home.total }}
+          </div>
+
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 /*jumbotron style */
 #jumbo {
   text-align: center;
-  background-image: url('Jumbobg.jpg');
-  height: 200px;
+  background-image: url('');
+  height: 275px;
   background-position: center;
 }
 #logo {
@@ -12,10 +12,12 @@
   color: white;
 }
 
-/* shoes list display */
+/* single shoe card*/
+#shoe-image {
+  padding-top: 40px;
+}
 #shoe-description {
-  border-style: groove;
-  border-color: black;
+
 }
 #shoe-brand {
   color: blue;

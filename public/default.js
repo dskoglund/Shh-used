@@ -32,15 +32,33 @@ app.config(['$routeProvider', '$locationProvider',
 ])
 
 app.controller('CheckoutController', CheckoutController)
-CheckoutController.$inject = []
-function CheckoutController() {
+CheckoutController.$inject = ['shoppingCart', '$scope', 'checkoutInfo']
+function CheckoutController(shoppingCart, $scope, checkoutInfo) {
+   console.log('in checkout controller')
+  const vm = this
 
+  vm.totals = shoppingCart.getTotals()
+  vm.cart = shoppingCart.items
+
+  $scope.getInfo = function() {
+    const userInformation = []
+    userInformation.push({address: $scope.address, name: $scope.username})
+    checkoutInfo.getUserInfo(userInformation)
+  }
 }
 
 
 app.controller('ConfirmController', ConfirmController)
-ConfirmController.$inject = []
-function ConfirmController() {
+ConfirmController.$inject = ['shoppingCart', '$scope', 'checkoutInfo']
+function ConfirmController(shoppingCart, $scope, checkoutInfo) {
+
+  console.log('in confirm controller')
+  const vm = this
+  vm.totals = shoppingCart.getTotals()
+  vm.info = checkoutInfo.getUserInfo().info
+  console.log(vm.info)
+
+
 
 }
 
@@ -95,8 +113,13 @@ function StoreController(shoesData, $scope, shoppingCart) {
   vm.shoesList = []
 
   shoesData.loadAll().then(shoes => {
-    vm.shoesList = shoes
-  })
+    if(shoppingCart.items.length === 0) {
+      vm.shoesList = shoes
+      console.log('regular store load')
+    } else {
+        vm.shoesList = shoes
+      }
+    })
 
   vm.addToCart = function(shoe) {
     vm.shoesList = vm.shoesList.filter(function(item) {
@@ -161,4 +184,32 @@ function shoppingCart() {
 
     return totals
   }
+}
+
+app.factory('checkoutInfo', checkoutInfo)
+function checkoutInfo() {
+
+  const userInfo = {
+    getUserInfo
+  }
+
+  return userInfo
+
+  function getUserInfo(userInformation) {
+    const name = userInformation.map(function(user) {
+      return user.name
+    })
+    const address = userInformation.map(function(user) {
+      return user.address
+    })
+    const info = {
+      name: name,
+      address: address
+    }
+    console.log(info.name)
+    console.log(info.address)
+
+    return info
+  }
+
 }

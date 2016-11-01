@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <title>Shh-used</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="default.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="default.css" charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
     <script src="https://use.fontawesome.com/7904e30ddc.js"></script>
   </head>
   <body>
@@ -19,36 +20,23 @@
               <input ng-model="search.$">
             </form>
           </div>
-        </div>
-
-        <div class="col-md-12">
-          <ul>
-            <li
-              style="list-style-type: none;" class="col-md-3" id="shoe-description" ng-repeat="shoe in home.shoesList | filter:search">
-              <div>
-                <img id="shoe-image" src="{{ 'assets/' + shoe.image }}" alt="{{shoe.name + 'Image'}}" />
-                <h2 id="shoe-brand"> {{ shoe.brand }} </h2>
-                <h3 id="shoe-name"> {{ shoe.name }} </h3>
-                <h4 id="shoe-size"> Size: {{ shoe.size }} </h4>
-                <h5 id="shoe-price"> Price: ${{ shoe.price }} </h5>
-                <button ng-click="addToCart(this.shoe)"> Add to Cart </button>
+          <div id="viewBar" class="col-md-12">
+            <a class="col-md-1" href="/">store</a>
+            <a href="cart" id="viewBarCart" class="col-md-1">
+              <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"><h4>View Cart</h4></i>
+              <div class="" ng-show="home.quantity">
+                {{ home.quantity }} item(s)
               </div>
-            </li>
-          </ul>
+              <div class="" ng-show="home.preTotal">
+                ${{ home.preTotal }}
+              </div>
+            </a>
+          </div>
         </div>
         <div>
-          <ul>
-            <li style="list-style-type: none;" ng-repeat="item in home.cart">
-              <div><i ng-click="removeFromCart(this.item)" class="fa fa-times fa-2x" aria-hidden="true"></i>Shoe: {{ item.name }} Price: ${{ item.price }}</div>
-            </li>
-          </ul>
-          <div ng-show="home.total">
-              <h4>Total: ${{ home.total }}</h4>
-              <h5>Tax: %{{ (home.tax*100) }}</h5>
-              <h5>Shipping: ${{ home.ship }}</h5>
-              <h4>Order Total: ${{ home.overallTotal }}</h4>
-              <button type="button" name="button">Checkout</button>
+          <div ng-view>
           </div>
+          <hr>
         </div>
       </div>
     </div>

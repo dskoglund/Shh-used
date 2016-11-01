@@ -10,6 +10,8 @@ function createApp(db) {
 
   app.use(jsonParser)
   app.use(express.static('./public'))
+  app.use(express.static('./templates'))
+  app.use(express.static('./bower_components'))
   app.use('/shoes', appRouter(db))
 
   return app

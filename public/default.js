@@ -1,79 +1,96 @@
-const app = angular.module('shop', [])
+const app = angular.module('shop', [
+  'ngRoute'
+])
+
+app.config(['$routeProvider', '$locationProvider',
+  function($routeProvider, $locationProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: '/templates/store.html',
+        controller: 'StoreController',
+        controllerAs: 'store'
+      })
+      .when('/cart', {
+        templateUrl: '/templates/cart.html',
+        controller: 'CartController',
+        controllerAs: 'cart'
+      })
+      .when('/checkout', {
+        templateUrl: '/templates/checkout.html',
+        controller: 'HomeController',
+        controllerAs: 'home'
+      })
+      .when('/confirm', {
+        templateUrl: '/templates/confirm.html',
+        controller: '',
+        controllerAs: '',
+      })
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false});
+  }
+])
+
+app.controller('CartController', CartController)
+CartController.$inject = ['shoppingCart']
+function CartController(shoppingCart) {
+
+
+  const vm = this
+  vm.cart = shoppingCart.items
+  vm.totals = shoppingCart.getTotals()
+
+  vm.removeFromCart = function(item) {
+    const indexToBeRemoved = shoppingCart.items.indexOf(item)
+    shoppingCart.items.splice(indexToBeRemoved, 1)
+  }
+}
 
 app.controller('HomeController', HomeController)
+HomeController.$inject = ['shoppingCart', '$scope']
+function HomeController(shoppingCart, $scope) {
 
-HomeController.$inject = ['shoesData', '$scope']
+  const vm = this
+  vm.logo = "Shh-used"
+  vm.slogan = "Try Walking in Someone Elses"
 
-function HomeController(shoesData, $scope) {
+  vm.quantity = 0
+
+  $scope.$watch(function() {
+    return shoppingCart.items.length
+  },function(cartQuantity) {
+    vm.quantity = cartQuantity
+  })
+
+  $scope.$watch(function() {
+    return shoppingCart.getTotals().subTotal
+  },function(orderTotal) {
+    vm.preTotal = orderTotal
+  })
+}
+
+app.controller('StoreController', StoreController)
+StoreController.$inject = ['shoesData', '$scope', 'shoppingCart']
+function StoreController(shoesData, $scope, shoppingCart) {
 
   const vm = this
 
-  const shoesList = []
-  const cart = []
+  vm.shoesList = []
 
-  vm.cart = cart
-  vm.logo = "Shh-used"
-  vm.slogan = "Try Walking in Someone Elses"
-  vm.shoesList = shoesList
-
-  shoesData.loadAll().then(shoesList => {
-    vm.shoesList = shoesList
+  shoesData.loadAll().then(shoes => {
+    vm.shoesList = shoes
   })
 
-  $scope.addToCart = function() {
-    const shoe = this.shoe
-    vm.cart.push(angular.copy(shoe));
-    const shoeToBeRemoved = vm.shoesList.indexOf(shoe)
-    vm.shoesList.splice(shoeToBeRemoved, 1)
-    vm.total = (getTotal()).toFixed(2)
-    console.log(vm.total)
-    vm.overallTotal = (addTaxShip()).toFixed(2)
+  vm.addToCart = function(shoe) {
+    vm.shoesList = vm.shoesList.filter(function(item) {
+      return item !== shoe
+    })
+    shoppingCart.addToCart(shoe)
   }
-
-  $scope.removeFromCart = function() {
-    const item = this.item
-    const itemToBeRemoved = vm.cart.indexOf(item)
-    vm.cart.splice(itemToBeRemoved, 1)
-    vm.shoesList.push(angular.copy(item))
-    vm.total = (getTotal()).toFixed(2)
-    console.log(vm.total)
-    vm.overallTotal = (addTaxShip()).toFixed(2)
-  }
-
-  function tripleZero(){
-    if(getTotal() === 0.00) {
-      return vm.total = 0
-    } else {
-      return vm.total = getTotal()
-    }
-  }
-
-  function getTotal() {
-    return vm.cart.reduce((total, { price }) =>
-    total + price
-    ,0)
-  }
-
-  function addTaxShip() {
-    const tax = .08
-    const ship = 5.99
-    const setTotal = 0.00
-    vm.tax = tax
-    vm.ship = ship
-    const taxShip = ((((vm.total*1)*(tax*1))+(vm.total*1))+(ship*1))
-    if(taxShip === ship){
-      return setTotal
-    } else {
-      return taxShip
-    }
-
-  }
-
 }
+
 app.factory('shoesData', shoesData)
-
 shoesData.$inject = ['$http']
-
 function shoesData($http) {
 
   return {
@@ -82,5 +99,49 @@ function shoesData($http) {
 
   function loadAll() {
     return $http.get('./shoes').then(res => res.data)
+  }
+}
+
+app.factory('shoppingCart',shoppingCart)
+function shoppingCart() {
+
+  const cart = {
+    getTotals,
+    removeFromCart,
+    addToCart,
+    items: []
+  }
+
+  return cart
+
+  function removeFromCart(item) {
+    const indexToBeRemoved = cart.indexOf(shoe)
+    cart.items.splice(indexToBeRemoved, 1)
+  }
+
+  function addToCart(item) {
+    cart.items.push(item)
+  }
+
+  function getTotals() {
+    const setGrand = 0.00
+    const subTotal = cart.items.reduce((total, { price }) => total + price, 0)
+    const tax = 0.08
+    const shipping = 5.99
+    let grandTotal = 0.00
+    if( subTotal === 0 ) {
+      grandTotal = 0.00
+    } else {
+      grandTotal = subTotal * tax + subTotal + shipping
+    }
+
+    const totals = {
+      subTotal: (subTotal).toFixed(2),
+      tax: tax,
+      shipping: shipping,
+      grandTotal: (grandTotal).toFixed(2)
+    }
+
+    return totals
   }
 }

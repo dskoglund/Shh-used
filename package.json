@@ -10,7 +10,7 @@
     "tdd": "mocha -w -R nyan"
   },
   "engines": {
-    "node" : ">=6.0.0"
+    "node": ">=6.0.0"
   },
   "repository": {
     "type": "git",
@@ -30,12 +30,14 @@
     "request": "^2.75.0"
   },
   "dependencies": {
-    "ngcart": "^1.0.0",
+    "angular-route": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "method-override": "^2.3.6",
     "mongodb": "^2.2.10",
     "mongoose": "^4.6.4",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "ngcart": "^1.0.0"
   }
 }

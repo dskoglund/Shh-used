@@ -1,8 +1,7 @@
 <div>
   <div class="col-md-12">
     <ul>
-      <li
-        style="list-style-type: none;" class="col-md-3" id="shoe-description" ng-repeat="shoe in store.shoesList | filter:search">
+      <li style="list-style-type: none;" class="col-md-3" id="shoe-description" ng-repeat="shoe in store.shoesList | filter:search">
         <div>
           <img id="shoe-image" src="{{ 'assets/' + shoe.image }}" alt="{{shoe.name + 'Image'}}" />
           <h2 id="shoe-brand"> {{ shoe.brand }} </h2>

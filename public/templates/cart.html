@@ -1,7 +1,7 @@
 <div>
   <ul>
     <li style="list-style-type: none;" ng-repeat="item in cart.cart">
-      <div><i ng-click="removeFromCart(item)" class="fa fa-times fa-2x" aria-hidden="true"></i>Shoe: {{ item.name }} Price: ${{ item.price }}</div>
+      <div><i ng-click="cart.removeFromCart(item)" class="fa fa-times fa-2x" aria-hidden="true"></i>Shoe: {{ item.name }} Price: ${{ item.price }}</div>
     </li>
   </ul>
   <div>
@@ -9,6 +9,6 @@
     <h5>Tax: %{{ (cart.totals.tax*100) }}</h5>
     <h5>Shipping: ${{ cart.totals.shipping }}</h5>
     <h4>Order Total: ${{ cart.totals.grandTotal }}</h4>
-    <button type="button" name="button">Checkout</button>
+    <a href="/checkout" type="button" name="button">Checkout</a>
   </div>
 </div>

@@ -17,13 +17,13 @@ app.config(['$routeProvider', '$locationProvider',
       })
       .when('/checkout', {
         templateUrl: '/templates/checkout.html',
-        controller: 'HomeController',
-        controllerAs: 'home'
+        controller: 'CheckoutController',
+        controllerAs: 'checkout'
       })
       .when('/confirm', {
         templateUrl: '/templates/confirm.html',
-        controller: '',
-        controllerAs: '',
+        controller: 'ConfirmController',
+        controllerAs: 'confirm',
       })
     $locationProvider.html5Mode({
       enabled: true,
@@ -31,18 +31,35 @@ app.config(['$routeProvider', '$locationProvider',
   }
 ])
 
-app.controller('CartController', CartController)
-CartController.$inject = ['shoppingCart']
-function CartController(shoppingCart) {
+app.controller('CheckoutController', CheckoutController)
+CheckoutController.$inject = []
+function CheckoutController() {
 
+}
+
+
+app.controller('ConfirmController', ConfirmController)
+ConfirmController.$inject = []
+function ConfirmController() {
+
+}
+
+app.controller('CartController', CartController)
+CartController.$inject = ['shoppingCart', '$scope']
+function CartController(shoppingCart, $scope) {
 
   const vm = this
+  vm.cart = []
+
   vm.cart = shoppingCart.items
   vm.totals = shoppingCart.getTotals()
 
   vm.removeFromCart = function(item) {
-    const indexToBeRemoved = shoppingCart.items.indexOf(item)
-    shoppingCart.items.splice(indexToBeRemoved, 1)
+    vm.cart = vm.cart.filter(function(shoe) {
+      return shoe !== item
+    })
+    shoppingCart.removeFromCart(item)
+    vm.totals = shoppingCart.getTotals()
   }
 }
 
@@ -115,7 +132,7 @@ function shoppingCart() {
   return cart
 
   function removeFromCart(item) {
-    const indexToBeRemoved = cart.indexOf(shoe)
+    const indexToBeRemoved = cart.items.indexOf(item)
     cart.items.splice(indexToBeRemoved, 1)
   }
 

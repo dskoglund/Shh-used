@@ -16,7 +16,13 @@
       <li style="list-style-type: none;"><input type="text" ng-model="username" size="50" /></li>
       <li style="list-style-type: none;"><label for="address">Address:</label></li>
       <li style="list-style-type: none;"><input type="text" ng-model="address" size="50" /></li>
-      <!-- <li style="list-style-type: none;"><label for="country">State:</label></li>
+      <li style="list-style-type: none;"><label for="city">City:</lable></li>
+      <li style="list-style-type: none;"><input type="text" ng-model="city" /></li>
+      <li style="list-style-type: none;"><label for="zip">ZIP Code:</label></li>
+      <li style="list-style-type: none;"><input type="number" ng-model="zip" size="5"/></li>
+      <li style="list-style-type: none;"><label for="email">Email:</label></li>
+      <li style="list-style-type: none;"><input type="text" ng-model="email" size="50" /></li>
+      <li style="list-style-type: none;"><label for="state">State:</label></li>
       <li style="list-style-type: none;">
         <select ng-model="state">
           <option selected="" value="Default">(Please select a state)</option>
@@ -74,15 +80,15 @@
           <option value="WY">Wyoming</option>
         </select>
       </li>
-      <li style="list-style-type: none;"><label for="city">City:</lable></li>
-      <li style="list-style-type: none;"><input type="text" ng-model="city" /></li>
-      <li style="list-style-type: none;"><label for="zip">ZIP Code:</label></li>
-      <li style="list-style-type: none;"><input type="number" ng-model="zip" maxlength="5" /></li>
-      <li style="list-style-type: none;"><label for="email">Email:</label></li>
-      <li style="list-style-type: none;"><input type="text" ng-model="email" size="50" /></li> -->
     </ul>
     <input type="submit" value="Confirm Order"></input>
-    <a href="/cart">Back to Cart</a>
-    <a href="/confirm">Click Here to complete order</a>
   </form>
+  <div class="">
+      <a href="/cart">Back to Cart</a>
+  </div>
+  <div class="">
+      <a href="/confirm">Click Here to complete order</a>
+  </div>
+
+
 </div>

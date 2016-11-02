@@ -34,16 +34,14 @@ app.config(['$routeProvider', '$locationProvider',
 app.controller('CheckoutController', CheckoutController)
 CheckoutController.$inject = ['shoppingCart', '$scope', 'checkoutInfo']
 function CheckoutController(shoppingCart, $scope, checkoutInfo) {
-   console.log('in checkout controller')
   const vm = this
 
   vm.totals = shoppingCart.getTotals()
   vm.cart = shoppingCart.items
 
   $scope.getInfo = function() {
-    const userInformation = []
-    userInformation.push({address: $scope.address, name: $scope.username})
-    checkoutInfo.getUserInfo(userInformation)
+    checkoutInfo.userInformation.push({address: $scope.address, name: $scope.username, city: $scope.city, zip: $scope.zip, email: $scope.email, state: $scope.state})
+    checkoutInfo.getUserInfo(checkoutInfo.userInformation)
   }
 }
 
@@ -51,15 +49,11 @@ function CheckoutController(shoppingCart, $scope, checkoutInfo) {
 app.controller('ConfirmController', ConfirmController)
 ConfirmController.$inject = ['shoppingCart', '$scope', 'checkoutInfo']
 function ConfirmController(shoppingCart, $scope, checkoutInfo) {
-
-  console.log('in confirm controller')
   const vm = this
+  vm.cart = shoppingCart.items
   vm.totals = shoppingCart.getTotals()
-  vm.info = checkoutInfo.getUserInfo().info
+  vm.info = checkoutInfo.getUserInfo(checkoutInfo.userInformation)
   console.log(vm.info)
-
-
-
 }
 
 app.controller('CartController', CartController)
@@ -181,6 +175,7 @@ function shoppingCart() {
       shipping: shipping,
       grandTotal: (grandTotal).toFixed(2)
     }
+    console.log(totals.subTotal)
 
     return totals
   }
@@ -189,7 +184,10 @@ function shoppingCart() {
 app.factory('checkoutInfo', checkoutInfo)
 function checkoutInfo() {
 
+  const userInformation = []
+
   const userInfo = {
+    userInformation,
     getUserInfo
   }
 
@@ -202,9 +200,26 @@ function checkoutInfo() {
     const address = userInformation.map(function(user) {
       return user.address
     })
+    const city = userInformation.map(function(user) {
+      return user.city
+    })
+    const zip = userInformation.map(function(user) {
+      return user.zip
+    })
+    const email = userInformation.map(function(user) {
+      return user.email
+    })
+    const state = userInformation.map(function(user) {
+      return user.state
+    })
+
     const info = {
-      name: name,
-      address: address
+      email: email[0],
+      zip: zip[0],
+      city: city[0],
+      name: name[0],
+      address: address[0],
+      state: state[0]
     }
     console.log(info.name)
     console.log(info.address)

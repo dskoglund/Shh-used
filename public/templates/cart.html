@@ -1,15 +1,44 @@
-<div>
-  <ul>
-    <li style="list-style-type: none;" ng-repeat="item in cart.cart">
-      <div><i ng-click="cart.removeFromCart(item)" class="fa fa-times fa-2x" aria-hidden="true"></i>Shoe: {{ item.name }} Price: ${{ item.price }}</div>
-    </li>
-  </ul>
-  <div>
-    <h4>Total: ${{ cart.totals.subTotal }}</h4>
-    <h5>Tax: %{{ (cart.totals.tax*100) }}</h5>
-    <h5>Shipping: ${{ cart.totals.shipping }}</h5>
-    <h4>Order Total: ${{ cart.totals.grandTotal }}</h4>
-    <a href="/checkout" type="button" name="button">Checkout</a>
-    <a href="/" type="button" name="button">Continue Shopping</a>
+<div class="container">
+  <h1>Shopping Cart:</h1>
+  <div class="row">
+    <div class="col-md-2">
+      <!-- leave this empty -->
+    </div>
+    <div id="cart-view" class="col-md-8">
+        <li class="row" style="list-style-type: none;" ng-repeat="item in cart.cart">
+          <div  id="remove-x" class="col-md-1">
+            <i ng-click="cart.removeFromCart(item)" class="fa fa-times fa-2x" aria-hidden="true">
+            <h5>Remove</h5></i>
+          </div>
+          <div class="col-md-3">
+            <h5>Brand: </h5>
+            <h4>{{ item.brand }}</h4>
+          </div>
+          <div class="col-md-3">
+            <h5>Shoe: </h5>
+            <h4>{{ item.name }}</h4>
+          </div>
+          <div class="col-md-2">
+            <h5>Size: </h5>
+            <h4>{{ item.size }}</h4>
+          </div>
+          <div class="col-md-3">
+            <h5>Price</h5>
+            <h4>${{ item.price }}</h4>
+          </div>
+        </li>
+        <h1>Totals:</h1>
+      <div>
+        <h4>Total: ${{ cart.totals.subTotal }}</h4>
+        <h5>Tax: %{{ (cart.totals.tax*100) }}</h5>
+        <h5>Shipping: ${{ cart.totals.shipping }}</h5>
+        <h4>Order Total: ${{ cart.totals.grandTotal }}</h4>
+        <a ng-show="cart.checkoutbtn" class="btn btn-default" href="/checkout" type="button" name="button">Checkout</a>
+        <a class="btn btn-default" href="/" type="button" name="button">Continue Shopping</a>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <!-- leave this empty -->
+    </div>
   </div>
 </div>

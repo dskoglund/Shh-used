@@ -5,37 +5,39 @@
     <title>Shh-used</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="default.css" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Oswald|Raleway|Roboto|Source+Sans+Pro" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
     <script src="https://use.fontawesome.com/7904e30ddc.js"></script>
   </head>
   <body>
-    <div class="container" ng-app="shop">
+    <div class="" ng-app="shop">
       <div ng-controller="HomeController as home">
-        <div class="">
           <div id="jumbo" class="jumbotron">
-            <h1 id="logo" class="">{{ home.logo }}</h1>
-            <h2 id="slogan" class="">{{ home.slogan }}</h2>
-            <form>
-              <input ng-model="search.$">
-            </form>
+            <div id="overlay">
+                <h1 id="logo" class="">{{ home.logo }}</h1>
+                <h2 id="slogan" class="">{{ home.slogan }}</h2>
+                <div id="view-bar" class="row">
+                  <div id="store-btn">
+                    <a  href="/" id="store-nav" class="col-md-4"><i id="home-icon" class="fa fa-home fa-4x" aria-hidden="true"></i><h3>View Store</h3></a>
+                  </div>
+                  <form class="col-md-4">
+                    <input id="search-bar" class="input-lg" ng-model="search.$" size="50" placeholder="Search for Shoes">
+                  </form>
+                  <a href="cart" id="view-bar-cart" class="col-md-4 pull-right">
+                    <i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i>
+                    <div class="" ng-show="home.quantity">
+                      {{ home.quantity }} item(s), ${{ home.preTotal }}
+                    </div>
+                    <div class="" ng-show="home.quantity">
+                    </div>
+                    <h3 id="cart-text" ng-show="home.quantity" >View Cart</h3>
+                  </a>
+                </div>
+            </div>
           </div>
-          <div id="viewBar" class="col-md-12">
-            <a class="col-md-1" href="/">store</a>
-
-            <a href="cart" id="viewBarCart" class="col-md-1">
-              <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"><h4>View Cart</h4></i>
-              <div class="" ng-show="home.quantity">
-                {{ home.quantity }} item(s)
-              </div>
-              <div class="" ng-show="home.preTotal">
-                ${{ home.preTotal }}
-              </div>
-            </a>
-          </div>
-        </div>
         <div>
-          <div ng-view>
+          <div id="view-div" ng-view>
           </div>
           <hr>
         </div>

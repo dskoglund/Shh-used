@@ -1,18 +1,91 @@
 /*jumbotron style */
 #jumbo {
+  position: relative;
+  padding-top: 0px;
   text-align: center;
-  background-image: url('');
-  height: 275px;
+  background-image: url('assets/Jumbobg.jpg');
+  height: 800px;
   background-position: center;
 }
+#overlay {
+  margin-top: 0px;
+  background: cover;
+  background-color: rgba(61, 70, 100, 0.50);
+  width: 100%;
+  height: 800px;
+}
 #logo {
-  color: yellow;
+  padding-top: 200px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
 }
 #slogan {
   color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+/*nav bar style*/
+#view-bar {
+  font-family: 'Roboto', sans-serif;
+  margin-top: 150px;
+  text-align: center;
+}
+#store-btn{
+
+}
+#store-btn:hover {
+
+}
+#view-bar-cart {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+#store-nav {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+
+}
+#store-nav{
+
+}
+#search-bar {
+  text-align: center;
+}
+#home-icon {
+  -webkit-transition: width 1s, height 1s, background-color 1s, -webkit-transform 1s;
+transition: width 1s, height 1s, background-color 1s, transform 1s;
+}
+#home-icon:hover{
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  color: lightgreen;
+}
+#home-icon:click{
+  color: red;
 }
 
 /* single shoe card*/
+#shoe-box {
+  text-align: center;
+  padding: 25px;
+  margin: 25px;
+  border-style: outset;
+  background-color: white;
+  border-radius: 20px;
+}
+#shoe-box:hover {
+  width: 101%;
+  height: 101%;
+  background-color: lightblue;
+}
+#shoe-box-contents {
+  -webkit-transition: width 1s, height 1s, background-color 1s, -webkit-transform 1s;
+transition: width 1s, height 1s, background-color 1s, transform 1s;
+}
+#shoe-box-contents:hover {
+
+  border-style: inset;
+}
 #shoe-image {
   padding-top: 40px;
 }
@@ -32,4 +105,18 @@
 }
 #shoe-price {
   font-weight: 900;
+}
+
+/*cart*/
+
+#cart-view {
+}
+#remove-x {
+  font-family: 'Roboto', sans-serif;
+  color: red;
+}
+
+/*view for templates*/
+#view-div {
+
 }

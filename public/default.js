@@ -34,6 +34,7 @@ app.config(['$routeProvider', '$locationProvider',
 app.controller('CheckoutController', CheckoutController)
 CheckoutController.$inject = ['shoppingCart', '$scope', 'checkoutInfo']
 function CheckoutController(shoppingCart, $scope, checkoutInfo) {
+
   const vm = this
 
   vm.totals = shoppingCart.getTotals()
@@ -49,11 +50,12 @@ function CheckoutController(shoppingCart, $scope, checkoutInfo) {
 app.controller('ConfirmController', ConfirmController)
 ConfirmController.$inject = ['shoppingCart', '$scope', 'checkoutInfo']
 function ConfirmController(shoppingCart, $scope, checkoutInfo) {
+
   const vm = this
+
   vm.cart = shoppingCart.items
   vm.totals = shoppingCart.getTotals()
   vm.info = checkoutInfo.getUserInfo(checkoutInfo.userInformation)
-  console.log(vm.info)
 }
 
 app.controller('CartController', CartController)
@@ -61,8 +63,10 @@ CartController.$inject = ['shoppingCart', '$scope']
 function CartController(shoppingCart, $scope) {
 
   const vm = this
+
   vm.cart = []
 
+  vm.checkoutbtn = shoppingCart.items.length
   vm.cart = shoppingCart.items
   vm.totals = shoppingCart.getTotals()
 
@@ -72,6 +76,7 @@ function CartController(shoppingCart, $scope) {
     })
     shoppingCart.removeFromCart(item)
     vm.totals = shoppingCart.getTotals()
+    vm.checkoutbtn = shoppingCart.items.length
   }
 }
 
@@ -80,9 +85,9 @@ HomeController.$inject = ['shoppingCart', '$scope']
 function HomeController(shoppingCart, $scope) {
 
   const vm = this
-  vm.logo = "Shh-used"
-  vm.slogan = "Try Walking in Someone Elses"
 
+  vm.logo = "Shh-used"
+  vm.slogan = "Take a Walk in Someone Elses Shoes"
   vm.quantity = 0
 
   $scope.$watch(function() {
@@ -175,8 +180,6 @@ function shoppingCart() {
       shipping: shipping,
       grandTotal: (grandTotal).toFixed(2)
     }
-    console.log(totals.subTotal)
-
     return totals
   }
 }
@@ -221,10 +224,6 @@ function checkoutInfo() {
       address: address[0],
       state: state[0]
     }
-    console.log(info.name)
-    console.log(info.address)
-
     return info
   }
-
 }

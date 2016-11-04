@@ -40,6 +40,7 @@ app.controller('HomeController', HomeController)
 HomeController.$inject = ['shoppingCart', '$scope', '$location', '$anchorScroll', '$window' ]
 function HomeController(shoppingCart, $scope, $location, $anchorScroll, $window) {
 
+  const screenHeight = $window.innerHeight
   const vm = this
 
   vm.logo = "Shh-used"
@@ -60,19 +61,19 @@ function HomeController(shoppingCart, $scope, $location, $anchorScroll, $window)
     $location.path( '/' )
     $location.hash('main-home')
     $anchorScroll()
-    $window.scrollBy(0,900)
+    $window.scrollBy(0, screenHeight)
   }
   $scope.gotoViewCart = function() {
     $location.path('cart')
     $location.hash('main-home')
     $anchorScroll()
-    $window.scrollBy(0,900)
+    $window.scrollBy(0, screenHeight)
   }
   $scope.scrollToStore = function() {
     $location.path('/')
     $location.hash('main-home')
     $anchorScroll()
-    $window.scrollBy(0,900)
+    $window.scrollBy(0, screenHeight)
   }
 }
 
@@ -104,6 +105,7 @@ app.controller('CartController', CartController)
 CartController.$inject = ['shoppingCart', '$scope', '$location', '$anchorScroll', '$window']
 function CartController(shoppingCart, $scope, $location, $anchorScroll, $window) {
 
+  const screenHeight = $window.innerHeight
   const vm = this
 
   vm.cart = []
@@ -124,13 +126,13 @@ function CartController(shoppingCart, $scope, $location, $anchorScroll, $window)
     $location.path('/checkout')
     $location.hash('main-home')
     $anchorScroll()
-    $window.scrollBy(0,900)
+    $window.scrollBy(0, screenHeight)
   }
   $scope.backToStore = function() {
     $location.path('/')
     $location.hash('main-home')
     $anchorScroll()
-    $window.scrollBy(0,900)
+    $window.scrollBy(0, screenHeight)
   }
 }
 
@@ -138,7 +140,7 @@ function CartController(shoppingCart, $scope, $location, $anchorScroll, $window)
 app.controller('CheckoutController', CheckoutController)
 CheckoutController.$inject = ['shoppingCart', '$scope', 'checkoutInfo', '$location', '$anchorScroll', '$window']
 function CheckoutController(shoppingCart, $scope, checkoutInfo, $location, $anchorScroll, $window) {
-
+  const screenHeight = $window.innerHeight
   const vm = this
 
   vm.totals = shoppingCart.getTotals()
@@ -151,14 +153,14 @@ function CheckoutController(shoppingCart, $scope, checkoutInfo, $location, $anch
     checkoutInfo.userInformation.push({address: $scope.address, name: $scope.username, city: $scope.city, zip: $scope.zip, email: $scope.email, state: $scope.state})
     checkoutInfo.getUserInfo(checkoutInfo.userInformation)
     $anchorScroll()
-    $window.scrollBy(0,900)
+    $window.scrollBy(0, screenHeight)
   }
   $scope.backToCart = function() {
     $location.path('/cart')
     $location.hash('main-home')
 
     $anchorScroll()
-    $window.scrollBy(0,900)
+    $window.scrollBy(0, screenHeight)
   }
 }
 

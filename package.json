@@ -7,7 +7,9 @@
     "watch": "nodemon .",
     "start": "node .",
     "test": "mocha",
-    "tdd": "mocha -w -R nyan"
+    "tdd": "mocha -w -R nyan",
+    "seed": "node seed",
+    "heroku-postbuild": "npm run seed"
   },
   "engines": {
     "node": ">=6.0.0"

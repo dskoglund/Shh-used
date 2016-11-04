@@ -56,7 +56,6 @@ function CheckoutController(shoppingCart, $scope, checkoutInfo, $location, $anch
     $anchorScroll()
     $window.scrollBy(0,900)
   }
-
 }
 
 app.controller('ConfirmController', ConfirmController)

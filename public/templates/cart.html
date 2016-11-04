@@ -1,4 +1,4 @@
-<div class="container">
+<div id="cart-div" class="container">
   <h1>Shopping Cart:</h1>
   <div class="row">
     <div class="col-md-2">
@@ -33,8 +33,8 @@
         <h5>Tax: %{{ (cart.totals.tax*100) }}</h5>
         <h5>Shipping: ${{ cart.totals.shipping }}</h5>
         <h4>Order Total: ${{ cart.totals.grandTotal }}</h4>
-        <a ng-show="cart.checkoutbtn" class="btn btn-default" href="/checkout" type="button" name="button">Checkout</a>
-        <a class="btn btn-default" href="/" type="button" name="button">Continue Shopping</a>
+        <a class="btn btn-default" ng-click="backToStore()" type="button" name="button"><i class="fa fa-arrow-left" aria-hidden="true"></i> Continue Shopping</a>
+        <a ng-show="cart.checkoutbtn" class="btn btn-success" ng-click="checkoutBtn()" type="button" name="button">Checkout</a>
       </div>
     </div>
     <div class="col-md-2">

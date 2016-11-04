@@ -1,7 +1,7 @@
-<div>
-  <div class="col-md-12">
-    <ul>
-      <li style="list-style-type: none;" class="col-md-3" id="shoe-description" ng-repeat="shoe in store.shoesList | filter:search">
+<div id="store-div">
+  <div class="">
+    <ul >
+      <li style="list-style-type: none;" class="col-xs-12 col-lg-3" id="shoe-description" ng-repeat="shoe in store.shoesList | filter:search">
         <div id="shoe-box">
           <div id="shoe-box-contents">
             <img id="shoe-image" src="{{ 'assets/' + shoe.image }}" alt="{{shoe.name + 'Image'}}" />

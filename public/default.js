@@ -32,20 +32,32 @@ app.config(['$routeProvider', '$locationProvider',
 ])
 
 app.controller('CheckoutController', CheckoutController)
-CheckoutController.$inject = ['shoppingCart', '$scope', 'checkoutInfo']
-function CheckoutController(shoppingCart, $scope, checkoutInfo) {
+CheckoutController.$inject = ['shoppingCart', '$scope', 'checkoutInfo', '$location', '$anchorScroll', '$window']
+function CheckoutController(shoppingCart, $scope, checkoutInfo, $location, $anchorScroll, $window) {
 
   const vm = this
 
   vm.totals = shoppingCart.getTotals()
   vm.cart = shoppingCart.items
 
-  $scope.getInfo = function() {
+  $scope.submitCheckout = function() {
+    $location.path('/confirm')
+    $location.hash('main-home')
+
     checkoutInfo.userInformation.push({address: $scope.address, name: $scope.username, city: $scope.city, zip: $scope.zip, email: $scope.email, state: $scope.state})
     checkoutInfo.getUserInfo(checkoutInfo.userInformation)
+    $anchorScroll()
+    $window.scrollBy(0,900)
   }
-}
+  $scope.backToCart = function() {
+    $location.path('/cart')
+    $location.hash('main-home')
 
+    $anchorScroll()
+    $window.scrollBy(0,900)
+  }
+
+}
 
 app.controller('ConfirmController', ConfirmController)
 ConfirmController.$inject = ['shoppingCart', '$scope', 'checkoutInfo']
@@ -59,8 +71,8 @@ function ConfirmController(shoppingCart, $scope, checkoutInfo) {
 }
 
 app.controller('CartController', CartController)
-CartController.$inject = ['shoppingCart', '$scope']
-function CartController(shoppingCart, $scope) {
+CartController.$inject = ['shoppingCart', '$scope', '$location', '$anchorScroll', '$window']
+function CartController(shoppingCart, $scope, $location, $anchorScroll, $window) {
 
   const vm = this
 
@@ -78,11 +90,23 @@ function CartController(shoppingCart, $scope) {
     vm.totals = shoppingCart.getTotals()
     vm.checkoutbtn = shoppingCart.items.length
   }
+  $scope.checkoutBtn = function() {
+    $location.path('/checkout')
+    $location.hash('main-home')
+    $anchorScroll()
+    $window.scrollBy(0,900)
+  }
+  $scope.backToStore = function() {
+    $location.path('/')
+    $location.hash('main-home')
+    $anchorScroll()
+    $window.scrollBy(0,900)
+  }
 }
 
 app.controller('HomeController', HomeController)
-HomeController.$inject = ['shoppingCart', '$scope']
-function HomeController(shoppingCart, $scope) {
+HomeController.$inject = ['shoppingCart', '$scope', '$location', '$anchorScroll', '$window' ]
+function HomeController(shoppingCart, $scope, $location, $anchorScroll, $window) {
 
   const vm = this
 
@@ -95,12 +119,29 @@ function HomeController(shoppingCart, $scope) {
   },function(cartQuantity) {
     vm.quantity = cartQuantity
   })
-
   $scope.$watch(function() {
     return shoppingCart.getTotals().subTotal
   },function(orderTotal) {
     vm.preTotal = orderTotal
   })
+  $scope.gotoViewHome = function() {
+    $location.path( '/' )
+    $location.hash('main-home')
+    $anchorScroll()
+    $window.scrollBy(0,900)
+  }
+  $scope.gotoViewCart = function() {
+    $location.path('cart')
+    $location.hash('main-home')
+    $anchorScroll()
+    $window.scrollBy(0,900)
+  }
+  $scope.scrollToStore = function() {
+    $location.path('/')
+    $location.hash('main-home')
+    $anchorScroll()
+    $window.scrollBy(0,900)
+  }
 }
 
 app.controller('StoreController', StoreController)
@@ -118,8 +159,7 @@ function StoreController(shoesData, $scope, shoppingCart) {
     } else {
         vm.shoesList = shoes
       }
-    })
-
+  })
   vm.addToCart = function(shoe) {
     vm.shoesList = vm.shoesList.filter(function(item) {
       return item !== shoe

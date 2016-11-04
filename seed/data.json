@@ -1,0 +1,146 @@
+[
+   {
+      "name":"Clifton 2",
+      "style":"mens",
+      "brand":"Hoka One",
+      "price":27.95,
+      "size":"10.5",
+      "image":"hokoonecliftontwo.jpg"
+   },
+   {
+      "name":"Ultra Boost 2.0 Yeezy",
+      "style":"mens",
+      "brand":"Adidas",
+      "price":214.99,
+      "size":"13",
+      "image":"adidasultraboostyeezy.jpg"
+   },
+   {
+      "name":"Stinson EVO",
+      "style":"mens",
+      "brand":"Hoka One",
+      "price":24.99,
+      "size":"12",
+      "image":"hokoonestinsonevo.jpg"
+   },
+   {
+      "brand":"Nike",
+      "name":"Air Prestige IV",
+      "size":9.5,
+      "style":"mens",
+      "price":12.99,
+      "description":"Great shoes! Little too big for me, I shade to the 9 side of 9.5.",
+      "keywords":"nike grey gray skate surf lace red used 9.5 low dark",
+      "image":"airprestigeivnike.jpg"
+   },
+   {
+      "brand":"Nike",
+      "name":"Air Jordan 5 Retro OG 2016",
+      "size":9,
+      "style":"mens",
+      "price":159.99,
+      "description":"Selling Used Nike Air Jordan 5 Retro OG worn for a photo-shoot could pass as Brand New",
+      "keywords":"red grey gray basketball jordan nike black used 9 high mid dark",
+      "image":"nikejordan5retro.jpg"
+   },
+   {
+      "brand":"Vans",
+      "name":"Originals",
+      "size":9.5,
+      "style":"mens",
+      "price":14,
+      "description":"This is a pair of pre-owned Men's Vans, black and white.  The size is 9.5.  The shoes appear to be in excellent condition.",
+      "keywords":"vans skate surf lace black white used 9.5 low mid dark",
+      "image":"vanseucblackandwhite.jpg"
+   },
+   {
+      "brand":"Nike",
+      "name":"Air Jordon Retro 1 OG",
+      "size":11,
+      "style":"mens",
+      "price":180,
+      "description":"100% Authentic.",
+      "keywords":"nike jordan retro basketball air og lace black white used 11 high mid dark",
+      "image":"airjordan1retrohigh.jpg"
+   },
+   {
+      "brand":"Nike",
+      "name":"Nike Air Max Running",
+      "size":9,
+      "style":"mens",
+      "price":24.99,
+      "description":"Nike Air Max running shoes, men size 9, black, grey Nike swoosh, says Air Max through the black mesh on back of sneakers, really nice condition!",
+      "keywords":"nike running jogging fitness basketball airmax air max lace black grey gray used 9 lox mid dark",
+      "image":"nimeairmax9.jpg"
+   },
+   {
+      "brand":"Nike",
+      "name":"Air Jordan Retro 12",
+      "size":9,
+      "style":"mens",
+      "price":135,
+      "description":"Mens Jordan Retro 12 size 09.0 grey blue and white Shoes are in good shape.",
+      "keywords":"nike running jogging fitness basketball jordan retro 12 grey gray white lace blue 9",
+      "image":"airjordanretro12.jpg"
+   },
+   {
+      "brand":"Adidas",
+      "name":"Busenitz Suede",
+      "size":10,
+      "style":"mens",
+      "price":25.99,
+      "description":"Men's ADIDAS Busenitz black suede leather skateboard shoes. Size 10. Preowned in good condition. There is wear on the inside heel",
+      "keywords":"adidas soccer running jogging run jog sport stripe black brown busenitz low white skateboard skate surf 10",
+      "image":"adidanbusenitzsuede.jpg"
+   },
+   {
+      "brand":"Nike",
+      "name":"Air Jordan Retro 7",
+      "size":9,
+      "style":"mens",
+      "price":135,
+      "description":"Mens Jordan Retro 7 size 09.0  white gold and blue Shoes are in good shape. ",
+      "keywords":"nike air jordan airjordan basketball running high white blue jump jumpman retro 7 9",
+      "image":"airjordanretro7.jpg"
+   },
+   {
+      "brand":"Lacoste",
+      "name":"Lacoste Low Sport",
+      "size":10,
+      "style":"mens",
+      "price":19.95,
+      "description":" Used lightly, very good condition, LACOSTE Sport Athletic White Leather Shoes Size US 10 Men's, please see all pictures as they are part of my description, please ask if you have any questions. Shipping USPS priority Mail Calculated same day of the purchase. Thank you very much for looking.",
+      "keywords":"lacoste white los lace sport ahtletic aligator 10 running walking jogging run walk jog",
+      "image":"lacostesportshoe.jpg"
+   },
+   {
+      "brand":"Nike",
+      "name":"Air Jordan Retro 11 XI",
+      "size":10,
+      "style":"mens",
+      "price":170,
+      "description":"THIS AUCTION IS FOR A USED PAIR OF AIR JORDAN RETRO 11 BRED EDITION FROM 2001. THIS AUCTION IS ONLY FOR THE SHOES, ORIGINAL BOX IS NOT INCLUDED. FEEL FREE TO ASK ANY QUESTIONS YOU MAY HAVE.",
+      "keywords":"nike basketball air jordan jump jumpman sport ball retro 11 black red white lace high mid",
+      "image":"airjordanretro11xi.jpg"
+   },
+   {
+      "brand":"Nike",
+      "name":"Initiator Running",
+      "size":10.5,
+      "style":"mens",
+      "price":25,
+      "description":"Nike Initiator, Men's Running Shoes Size 10.5 White/Grey/Blue. These Nike shoes are pre-owned. These shoes do show signs of use, but are in very nice condition.",
+      "keywords":"nike running initiator white los lace sport run jog walk grey gray blue",
+      "image":"nikeinitiatorrunning.jpg"
+   },
+   {
+      "brand":"Nike",
+      "name":"Turbo Shox III",
+      "size":11,
+      "style":"mens",
+      "price":125,
+      "description":"SIDE SWOOSHS AND BACK SHOX HAVE SOME SCRAPE AREAS, AND SLIGHT FRAY MARK ON FRONT TOE MESH ",
+      "keywords":"nike running jog run shox shocks springs black sport 11 silver turbo",
+      "image":"niketurboshoxblack.jpg"
+   }
+]

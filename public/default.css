@@ -1,3 +1,8 @@
+img {
+    width: 100%;
+    height: 100%;
+}
+
 /*jumbotron style */
 #jumbo {
   position: relative;
@@ -6,6 +11,11 @@
   height: 900px;
   overflow: hidden;
   z-index: -100;
+}
+@media (max-width: 40em) {
+  #jumbo {
+    display: none;
+  }
 }
 #video-background {
   position: absolute;
@@ -27,16 +37,16 @@
   padding-top: 200px;
   color: white;
   font-family: 'Roboto', sans-serif;
-position: relative;
+  position: relative;
 }
 #slogan {
   color: white;
   font-family: 'Roboto', sans-serif;
-position: relative;
+  position: relative;
 }
 #scroll-btn {
   z-index: 100;
-  top:65%;
+  top: 60px;
   width: 100%;
   position: absolute;
   color: white;
@@ -53,7 +63,7 @@ position: relative;
 /*nav bar style*/
 #view-bar {
   font-family: 'Roboto', sans-serif;
-  margin-top: 60px;
+  margin-top: 20px;
   text-align: center;
   z-index: 3;
 }
@@ -62,17 +72,19 @@ position: relative;
 }
 
 #view-bar-cart {
+  margin-top: 20px;
   font-family: 'Roboto', sans-serif;
-  color: lightblue;
 }
+
 #store-nav {
   font-family: 'Roboto', sans-serif;
   color: white;
 }
 #store-nav{
+
 }
 #search-bar {
-  text-align: center;
+  /*text-align: center;*/
 }
 #home-icon {
 color: lightblue;
@@ -84,34 +96,45 @@ transition: width 1s, height 1s, background-color 1s, transform 1s;
   transform: rotate(360deg);
   color: lightgreen;
 }
+#cart-icon {
+  color: lightblue;
+  -webkit-transition: width 1s, height 1s, background-color 1s, -webkit-transform 1s;
+  transition: width 1s, height 1s, background-color 1s, transform 1s;
+}
+#cart-icon:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  color: lightgreen;
+}
 
 /* store shoe display*/
 #shoe-box {
   text-align: center;
-  padding: 25px;
-  margin: 25px;
+  padding: 10px;
   border-style: outset;
   background-color: white;
   border-radius: 20px;
+  min-height: 300px;
+  max-height: 300px;
+  overflow: scroll;
 }
 #shoe-box:hover {
   background-color: lightblue;
 }
 #shoe-box-contents {
-  overflow: hidden;
-}
-#shoe-box-contents:hover {
 
 }
 #shoe-image {
-  height: inherit;;
-  padding-top: 40px;
+  padding-top: 10px;
+  border-radius: 20px;
+  max-width: 50%;
+  max-height: 50%;
 }
 #shoe-description {
 
 }
 #shoe-brand {
-  color: blue;
+  color: black;
   text-transform: capitalize;
   text-decoration: underline;
 }
@@ -133,9 +156,15 @@ transition: width 1s, height 1s, background-color 1s, transform 1s;
   font-family: 'Roboto', sans-serif;
   color: red;
 }
+#cart-shoe-image {
+  max
+}
 
 /*view for templates*/
 #store-div {
+  padding-bottom: 200px;
+}
+#shoe-detail-div {
   padding-bottom: 200px;
 }
 #cart-div {
@@ -159,7 +188,4 @@ transition: width 1s, height 1s, background-color 1s, transform 1s;
   left: 0;
   width: 100%;
   text-align: center;
-
-
-
 }

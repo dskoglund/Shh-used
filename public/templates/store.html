@@ -1,18 +1,18 @@
 <div id="store-div">
-  <div class="">
-    <ul >
-      <li style="list-style-type: none;" class="col-xs-12 col-lg-3" id="shoe-description" ng-repeat="shoe in store.shoesList | filter:search">
+    <ul>
+      <li style="list-style-type: none;" class="col-xs-12 col-md-2" id="shoe-description" ng-repeat="shoe in store.shoesList | filter:search">
         <div id="shoe-box">
           <div id="shoe-box-contents">
-            <img id="shoe-image" src="{{ 'assets/' + shoe.image }}" alt="{{shoe.name + 'Image'}}" />
-            <h2 id="shoe-brand"> {{ shoe.brand }} </h2>
-            <h3 id="shoe-name"> {{ shoe.name }} </h3>
-            <h4 id="shoe-size"> Size: {{ shoe.size }} </h4>
+            <div  class="">
+              <img id="shoe-image" src="{{ 'assets/' + shoe.image }}" alt="{{shoe.name + 'Image'}}" />
+            </div>
+            <h5 id="shoe-brand"> {{ shoe.brand }} </h5>
+            <h5 id="shoe-name"> {{ shoe.name }} </h5>
+            <h5 id="shoe-size"> Size: {{ shoe.size }} </h5>
             <h5 id="shoe-price"> Price: ${{ shoe.price }} </h5>
             <button class="btn btn-primary" ng-click="store.addToCart(shoe)"> Add to Cart </button>
           </div>
         </div>
       </li>
     </ul>
-  </div>
 </div>

@@ -10,6 +10,11 @@ app.config(['$routeProvider', '$locationProvider',
         controller: 'StoreController',
         controllerAs: 'store'
       })
+      .when('/details', {
+        templateUrl: 'templates/details.html',
+        controller: 'DetailController',
+        controllerAs: 'detail'
+      })
       .when('/cart', {
         templateUrl: '/templates/cart.html',
         controller: 'CartController',
@@ -30,78 +35,6 @@ app.config(['$routeProvider', '$locationProvider',
       requireBase: false});
   }
 ])
-
-app.controller('CheckoutController', CheckoutController)
-CheckoutController.$inject = ['shoppingCart', '$scope', 'checkoutInfo', '$location', '$anchorScroll', '$window']
-function CheckoutController(shoppingCart, $scope, checkoutInfo, $location, $anchorScroll, $window) {
-
-  const vm = this
-
-  vm.totals = shoppingCart.getTotals()
-  vm.cart = shoppingCart.items
-
-  $scope.submitCheckout = function() {
-    $location.path('/confirm')
-    $location.hash('main-home')
-
-    checkoutInfo.userInformation.push({address: $scope.address, name: $scope.username, city: $scope.city, zip: $scope.zip, email: $scope.email, state: $scope.state})
-    checkoutInfo.getUserInfo(checkoutInfo.userInformation)
-    $anchorScroll()
-    $window.scrollBy(0,900)
-  }
-  $scope.backToCart = function() {
-    $location.path('/cart')
-    $location.hash('main-home')
-
-    $anchorScroll()
-    $window.scrollBy(0,900)
-  }
-}
-
-app.controller('ConfirmController', ConfirmController)
-ConfirmController.$inject = ['shoppingCart', '$scope', 'checkoutInfo']
-function ConfirmController(shoppingCart, $scope, checkoutInfo) {
-
-  const vm = this
-
-  vm.cart = shoppingCart.items
-  vm.totals = shoppingCart.getTotals()
-  vm.info = checkoutInfo.getUserInfo(checkoutInfo.userInformation)
-}
-
-app.controller('CartController', CartController)
-CartController.$inject = ['shoppingCart', '$scope', '$location', '$anchorScroll', '$window']
-function CartController(shoppingCart, $scope, $location, $anchorScroll, $window) {
-
-  const vm = this
-
-  vm.cart = []
-
-  vm.checkoutbtn = shoppingCart.items.length
-  vm.cart = shoppingCart.items
-  vm.totals = shoppingCart.getTotals()
-
-  vm.removeFromCart = function(item) {
-    vm.cart = vm.cart.filter(function(shoe) {
-      return shoe !== item
-    })
-    shoppingCart.removeFromCart(item)
-    vm.totals = shoppingCart.getTotals()
-    vm.checkoutbtn = shoppingCart.items.length
-  }
-  $scope.checkoutBtn = function() {
-    $location.path('/checkout')
-    $location.hash('main-home')
-    $anchorScroll()
-    $window.scrollBy(0,900)
-  }
-  $scope.backToStore = function() {
-    $location.path('/')
-    $location.hash('main-home')
-    $anchorScroll()
-    $window.scrollBy(0,900)
-  }
-}
 
 app.controller('HomeController', HomeController)
 HomeController.$inject = ['shoppingCart', '$scope', '$location', '$anchorScroll', '$window' ]
@@ -165,6 +98,79 @@ function StoreController(shoesData, $scope, shoppingCart) {
     })
     shoppingCart.addToCart(shoe)
   }
+}
+
+app.controller('CartController', CartController)
+CartController.$inject = ['shoppingCart', '$scope', '$location', '$anchorScroll', '$window']
+function CartController(shoppingCart, $scope, $location, $anchorScroll, $window) {
+
+  const vm = this
+
+  vm.cart = []
+
+  vm.checkoutbtn = shoppingCart.items.length
+  vm.cart = shoppingCart.items
+  vm.totals = shoppingCart.getTotals()
+
+  vm.removeFromCart = function(item) {
+    vm.cart = vm.cart.filter(function(shoe) {
+      return shoe !== item
+    })
+    shoppingCart.removeFromCart(item)
+    vm.totals = shoppingCart.getTotals()
+    vm.checkoutbtn = shoppingCart.items.length
+  }
+  $scope.checkoutBtn = function() {
+    $location.path('/checkout')
+    $location.hash('main-home')
+    $anchorScroll()
+    $window.scrollBy(0,900)
+  }
+  $scope.backToStore = function() {
+    $location.path('/')
+    $location.hash('main-home')
+    $anchorScroll()
+    $window.scrollBy(0,900)
+  }
+}
+
+
+app.controller('CheckoutController', CheckoutController)
+CheckoutController.$inject = ['shoppingCart', '$scope', 'checkoutInfo', '$location', '$anchorScroll', '$window']
+function CheckoutController(shoppingCart, $scope, checkoutInfo, $location, $anchorScroll, $window) {
+
+  const vm = this
+
+  vm.totals = shoppingCart.getTotals()
+  vm.cart = shoppingCart.items
+
+  $scope.submitCheckout = function() {
+    $location.path('/confirm')
+    $location.hash('main-home')
+
+    checkoutInfo.userInformation.push({address: $scope.address, name: $scope.username, city: $scope.city, zip: $scope.zip, email: $scope.email, state: $scope.state})
+    checkoutInfo.getUserInfo(checkoutInfo.userInformation)
+    $anchorScroll()
+    $window.scrollBy(0,900)
+  }
+  $scope.backToCart = function() {
+    $location.path('/cart')
+    $location.hash('main-home')
+
+    $anchorScroll()
+    $window.scrollBy(0,900)
+  }
+}
+
+app.controller('ConfirmController', ConfirmController)
+ConfirmController.$inject = ['shoppingCart', '$scope', 'checkoutInfo']
+function ConfirmController(shoppingCart, $scope, checkoutInfo) {
+
+  const vm = this
+
+  vm.cart = shoppingCart.items
+  vm.totals = shoppingCart.getTotals()
+  vm.info = checkoutInfo.getUserInfo(checkoutInfo.userInformation)
 }
 
 app.factory('shoesData', shoesData)
@@ -261,7 +267,7 @@ function checkoutInfo() {
       city: city[0],
       name: name[0],
       address: address[0],
-      state: state[0]
+      state: state[0],
     }
     return info
   }

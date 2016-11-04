@@ -20,15 +20,16 @@
           <h1 id="logo" class="">{{ home.logo }}</h1>
           <h2 id="slogan" class="">{{ home.slogan }}</h2>
         </div>
+        <div id="scroll-btn" ng-click="scrollToStore()">
+          <h3>Click to Begin</h3>
+        </div>
         <div id="view-bar" class="row">
           <div id="store-btn" class="col-xs-12 col-lg-4">
             <a ng-click="gotoViewHome()" id="store-nav" >
               <i id="home-icon" class="fa fa-home fa-4x" aria-hidden="true"></i>
               <h3>View Store</h3></a>
           </div>
-          <div id="scroll-btn" ng-click="scrollToStore()">
-            <h3>Click to Begin</h3>
-          </div>
+
           <form class="col-xs-12 col-lg-4">
             <input id="search-bar" class="input-lg" ng-model="search.$" size="50" placeholder="Search for Shoes">
           </form>

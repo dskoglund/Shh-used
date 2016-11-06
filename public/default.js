@@ -43,8 +43,6 @@ function HomeController(shoppingCart, $scope, $location, $anchorScroll, $window)
   const screenHeight = $window.innerHeight
   const vm = this
 
-  vm.logo = "Shh-used"
-  vm.slogan = "Take a Walk in Someone Elses Shoes"
   vm.quantity = 0
 
   $scope.$watch(function() {

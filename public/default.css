@@ -1,120 +1,110 @@
-img {
-    width: 100%;
+@media (max-width: 1024px){
+  #video {
+    height: 100vh;
+    }
+}
+@media (min-width: 1025px){
+  #video {
     height: 100%;
-}
-/*
-@media screen and (min-width: 0px) and (max-width: 400px) {
-  #jumbo {
-    display: block;
-  }*/
-
-}
-@media screen and (min-width: 401px) and (max-width: 1024px) {
-  #jumbo {
-    display: none;
-  }
-  #scroll-btn {
-    display: none;
-  }
-  #shoe-box {
-    text-align: center;
-    padding: 10px;
-    border-style: solid;
-    border: thin;
-    margin: 0;
-    background-color: white;
-    min-height: 200px;
-    max-height: 200px;
-    overflow: scroll;
+    width: 100%;
   }
 }
 
-/*jumbotron style */
-#jumbo {
-  position: relative;
-  padding-top: 0px;
+/*jumbotron*/
+#jumbotron {
+  padding: 0;
   text-align: center;
+  margin-bottom: 30px;
+  position: relative;
   height: 100vh;
   overflow: hidden;
-  z-index: -100;
 }
-#video-background {
-  position: absolute;
-  height: auto;
-  width: auto;
-  min-height: 100%;
-  min-width: 100%;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate3d(-50%, -50%, 0);
-  transform: translate3d(-50%, -50%, 0);
+#video-box {
+  width: 100%;
+  height: 100%;
 }
-#logo-slogan {
+#video-div {
+position: absolute;
+width: 100%;
+}
+#video {
+  opacity: 0.8;
+}
+#jumbo-text {
+  color: white;
   position: relative;
+  padding-top: 30vh;
 }
 #logo {
-  padding-top: 200px;
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  position: relative;
+  margin-top: 0px;
 }
 #slogan {
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  position: relative;
+
 }
 #scroll-btn {
-  z-index: 100;
-  top: 50%;
-  width: 100%;
-  position: absolute;
-  color: white;
-  text-align: center;
+  background-color: black;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50px;
+  opacity: 0.6;
+  margin-top: 10vh;
 }
 #scroll-btn:hover {
-  text-decoration: underline;
-  cursor: pointer;
+  border-style: outset;
+  border-color: white;
+  border-width: medium;
+  opacity: 1;
 }
-#scroll-btn:active {
-  color: lightgreen;
+#scroll-btn:active{
+  background-color: lightgreen;
+  opacity: 0.7;
+  border-style: inset;
 }
 
-/*nav bar style*/
-#view-bar {
-  font-family: 'Roboto', sans-serif;
-  margin-top: 20px;
-  text-align: center;
-  z-index: 3;
+/*navigation bar*/
+#navbar {
+  height: 20%;
 }
-#store-btn{
-  color: lightblue;
+
+#home-div {
+  text-align: center
 }
-#view-bar-cart {
-  margin-top: 20px;
-  font-family: 'Roboto', sans-serif;
-}
-#store-nav {
-  font-family: 'Roboto', sans-serif;
-  color: white;
-}
-#store-nav{
-}
-#search-bar {
+#home-nav {
+
 }
 #home-icon {
-color: lightblue;
-  -webkit-transition: width 1s, height 1s, background-color 1s, -webkit-transform 1s;
-transition: width 1s, height 1s, background-color 1s, transform 1s;
+  color: lightblue;
+  -webkit-transition: -webkit-transform 1s;
+  transition: transform 1s;
 }
 #home-icon:hover{
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
   color: lightgreen;
 }
+#home-font {
+
+}
+#search-div {
+text-align: center;
+}
+#search-bar {
+  text-align: center;
+}
+#cart-div {
+  text-align: center;
+}
+#cart-nav {
+
+}
 #cart-icon {
+
+}
+#cart-icon{
   color: lightblue;
-  -webkit-transition: width 1s, height 1s, background-color 1s, -webkit-transform 1s;
-  transition: width 1s, height 1s, background-color 1s, transform 1s;
+  -webkit-transition: -webkit-transform 1s;
+  transition: transform 1s;
 }
 #cart-icon:hover {
   -webkit-transform: rotate(360deg);
@@ -123,29 +113,34 @@ transition: width 1s, height 1s, background-color 1s, transform 1s;
 }
 
 /* store shoe display*/
-#shoe-box {
-  text-align: center;
-  padding: 10px;
-  margin-bottom: 100px;
-  border: thin;
-  background-color: white;
-  min-height: 400px;
-  max-height: 400px;
-  overflow: scroll;
-}
 #shoe-box:hover {
   background-color: lightblue;
 }
+#shoe-info {
+  margin: 10px;
+}
+#shoe-image {
+    position: relative;
+    float: left;
+    width:  150px;
+    height: 150px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 10px;
+}
+#shoe-box {
+  padding: 10px;
+  min-height: 300px;
+  max-height: 300px;
+  overflow: scroll;
+}
+
+
 #shoe-box-contents {
 
 }
-#shoe-image {
-  padding-top: 10px;
-  border-radius: 5px;
-  max-width: 50%;
-  max-height: 50%;
-  overflow: hidden;
-}
+
 #shoe-description {
 
 }
@@ -163,10 +158,21 @@ transition: width 1s, height 1s, background-color 1s, transform 1s;
 #shoe-price {
   font-weight: 900;
 }
+#shoe-btn-div {
+  width: 100%;
+  text-align: center;
+}
+#shoe-btn {
+  margin: 20px;
+}
 
 /*cart*/
 
 #cart-view {
+  width: 100%;
+}
+#cart-list {
+  width: 100%;
 }
 #remove-x {
   margin-top: 50px;
@@ -174,30 +180,20 @@ transition: width 1s, height 1s, background-color 1s, transform 1s;
   color: red;
 }
 #cart-shoe-image {
-  max
+  width: 100%;
 }
 
 /*view for templates*/
-#store-div {
+#angular-view {
   margin-bottom: 200px;
   padding-bottom: 200px;
 }
-#shoe-detail-div {
-  padding-bottom: 200px;
+#angular-cart-div {
+  width: 100%;
 }
-#cart-div {
-  padding-bottom: 200px;
-}
-#checkout-div {
-  padding-bottom: 200px;
-}
-#confirm-div {
-  padding-bottom: 200px;
-}
-
 /*footer*/
 #footer {
-  height: 5%;
+  height: 7%;
   background-color: black;
   color: white;
   position: fixed;

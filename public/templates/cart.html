@@ -1,49 +1,58 @@
-<div id="cart-div" class="container">
+<div id="angular-cart-div" class="container">
   <h1>Shopping Cart:</h1>
-  <div class="">
-    <div class="col-md-2">
-      <!-- leave this empty -->
-    </div>
-    <div id="cart-view" class="col-md-8">
-        <li class="row" style="list-style-type: none;" ng-repeat="item in cart.cart">
-          <div  id="remove-x" class="col-xs-1">
-            <i ng-click="cart.removeFromCart(item)" class="fa fa-times fa-2x" aria-hidden="true">
-            <h5>Remove</h5></i>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <!-- leave this empty -->
+      </div>
+      <div id="cart-view" class="col-xs-12 col-md-8">
+        <div id="cart-list" class="">
+          <li class="row" style="list-style-type: none;" ng-repeat="item in cart.cart">
+            <div id="remove-x" class="col-xs-1">
+              <i ng-click="cart.removeFromCart(item)" class="fa fa-times fa-2x" aria-hidden="true">
+              <h5>Remove</h5></i>
+            </div>
+            <div  class="col-xs-3">
+              <h5>Image:</h5>
+              <img id="cart-shoe-image" src="{{ 'assets/' + item.image }}" alt="{{shoe.name + ' Image'}}" />
+            </div>
+            <div class="col-xs-2">
+              <h5>Brand: </h5>
+              <h4>{{ item.brand }}</h4>
+            </div>
+            <div class="col-xs-3">
+              <h5>Shoe: </h5>
+              <h4>{{ item.name }}</h4>
+            </div>
+            <div class="col-xs-1">
+              <h5>Size: </h5>
+              <h4>{{ item.size }}</h4>
+            </div>
+            <div class="col-xs-2">
+              <h5>Price</h5>
+              <h4>${{ item.price }}</h4>
+            </div>
+            <hr class="col-xs-12">
+          </li>
+        </div>
+        <div id="cart-totals" class="col-xs-4 col-xs-offset-4">
+          <h1>Totals:</h1>
+          <div>
+            <h4>Total: ${{ cart.totals.subTotal }}</h4>
+            <h5>Tax: %{{ (cart.totals.tax*100) }}</h5>
+            <h5>Shipping: ${{ cart.totals.shipping }}</h5>
+            <h4>Order Total: ${{ cart.totals.grandTotal }}</h4>
+            <a class="btn btn-default" ng-click="backToStore()" type="button" name="button"><i class="fa fa-arrow-left" aria-hidden="true"></i> Continue Shopping</a>
+            <a ng-show="cart.checkoutbtn" class="btn btn-success" ng-click="checkoutBtn()" type="button" name="button">Checkout</a>
           </div>
-          <div id="cart-shoe-image" class="col-xs-3">
-            <h5>Image:</h5>
-            <img src="{{ 'assets/' + item.image }}" alt="{{shoe.name + ' Image'}}" />
-          </div>
-          <div class="col-xs-2">
-            <h5>Brand: </h5>
-            <h4>{{ item.brand }}</h4>
-          </div>
-          <div class="col-xs-3">
-            <h5>Shoe: </h5>
-            <h4>{{ item.name }}</h4>
-          </div>
-          <div class="col-xs-1">
-            <h5>Size: </h5>
-            <h4>{{ item.size }}</h4>
-          </div>
-          <div class="col-xs-3">
-            <h5>Price</h5>
-            <h4>${{ item.price }}</h4>
-          </div>
-          <hr>
-        </li>
-        <h1>Totals:</h1>
-      <div>
-        <h4>Total: ${{ cart.totals.subTotal }}</h4>
-        <h5>Tax: %{{ (cart.totals.tax*100) }}</h5>
-        <h5>Shipping: ${{ cart.totals.shipping }}</h5>
-        <h4>Order Total: ${{ cart.totals.grandTotal }}</h4>
-        <a class="btn btn-default" ng-click="backToStore()" type="button" name="button"><i class="fa fa-arrow-left" aria-hidden="true"></i> Continue Shopping</a>
-        <a ng-show="cart.checkoutbtn" class="btn btn-success" ng-click="checkoutBtn()" type="button" name="button">Checkout</a>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <!-- leave this empty -->
       </div>
     </div>
-    <div class="col-md-2">
-      <!-- leave this empty -->
-    </div>
+
+
+
   </div>
 </div>

@@ -11,48 +11,64 @@
     <script src="https://use.fontawesome.com/7904e30ddc.js"></script>
   </head>
   <body>
-    <div class="" ng-app="shop">
-      <div id="main-home" ng-controller="HomeController as home">
-        <div id="jumbo" class="jumbotron">
-          <video id="video-background" preload muted autoplay loop>
-            <source src="https://s3.amazonaws.com/shoeappstorage/Shoes+-+3627.mp4" type="video/mp4">
-          </video>
-          <h1 id="logo" class="">{{ home.logo }}</h1>
-          <h2 id="slogan" class="">{{ home.slogan }}</h2>
-        </div>
-        <div id="scroll-btn" ng-click="scrollToStore()">
-          <h3>Click to Begin</h3>
-        </div>
-        <div id="view-bar" class="row">
-          <div id="store-btn" class="col-xs-12 col-lg-4">
-            <a ng-click="gotoViewHome()" id="store-nav" >
-              <i id="home-icon" class="fa fa-home fa-4x" aria-hidden="true"></i>
-              <h3>View Store</h3></a>
-          </div>
-
-          <form class="col-xs-12 col-lg-4">
-            <input id="search-bar" class="input-lg" ng-model="search.$" size="50" placeholder="Search for Shoes">
-          </form>
-          <div  id="view-bar-cart" class="col-xs-12 col-lg-4 pull-right">
-            <a ng-click="gotoViewCart()" class="">
-              <i id="cart-icon" class="fa fa-shopping-cart fa-4x" aria-hidden="true">
-                <div class="" ng-show="home.quantity">
-                  <h5>{{ home.quantity }} item(s), ${{ home.preTotal }}</h5>
+    <div ng-app="shop">
+      <div ng-controller="HomeController as home">
+          <div class="row">
+            <div class="col-xs-12" style="padding: 0;">
+              <div id="jumbotron" class="">
+                <div id="video-box"class="">
+                  <div id="video-div" class="">
+                    <video id="video" preload muted autoplay loop>
+                      <source src="https://s3.amazonaws.com/shoeappstorage/Shoes+-+3627.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div id="jumbo-text" class="">
+                    <h1 id="logo">Shh-used</h1>
+                    <h2 id="slogan">Take a walk in Someone Else's</h2>
+                    <h3 id="scroll-btn" ng-click="scrollToStore()">Click Here to Begin</h3>
+                  </div>
                 </div>
-              </i>
-              <div class="" ng-show="home.quantity">
               </div>
-            </a>
+            </div>
           </div>
-        </div>
-        <div id="initial-scroll">
-          <div ng-view>
+          <div id="navbar" class="row">
+            <div id="home-div" class="col-xs-4">
+                <a id="home-nav" ng-click="gotoViewHome()">
+                  <i id="home-icon" class="fa fa-home fa-4x" aria-hidden="true"></i>
+                  <h3 id="home-font">View Store</h3>
+                </a>
+            </div>
+            <div id="search-div" class="col-xs-4">
+                <input id="search-bar" class="input-lg" ng-model="search.$" placeholder="Search for Shoes">
+            </div>
+            <div id="cart-div" class="col-xs-4">
+              <a id="cart-nav" ng-click="gotoViewCart()" class="">
+                <i id="cart-icon" class="fa fa-shopping-cart fa-4x" aria-hidden="true">
+                  <div class="" ng-show="home.quantity">
+                    <h5>{{ home.quantity }} item(s), ${{ home.preTotal }}</h5>
+                  </div>
+                </i>
+              </a>
+            </div>
           </div>
-        </div>
+          <div id="initial-scroll" class="row">
+            <div class="col-xs-2">
+              <!-- leave empty -->
+            </div>
+            <div class="col-xs-8">
+              <div id="angular-view" ng-view>
+              </div>
+            </div>
+            <div class="col-xs-2">
+              <!-- leave empty -->
+            </div>
+          </div>
+          <div class="row">
+            <div id="footer" class="col-xs-12">
+              <h3>created by dave<a><i href="https://www.linkedin.com/in/david-skoglund-612229120" class="fa fa-linkedin-square" aria-hidden="true"></i></a><i class="fa fa-github-square" aria-hidden="true"></i></h3>
+            </div>
+          </div>
       </div>
-    </div>
-    <div id="footer" class="col-xs-12">
-        <h3>created by dave<a><i href="https://www.linkedin.com/in/david-skoglund-612229120" class="fa fa-linkedin-square" aria-hidden="true"></i></a><i class="fa fa-github-square" aria-hidden="true"></i></h3>
     </div>
     <script src="default.js"></script>
   </body>

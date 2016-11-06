@@ -1,9 +1,6 @@
 <div id="angular-confirm-div" class="container">
   <div class="row">
-    <div class="col-xs-3">
-      <!-- //leave empty// -->
-    </div>
-    <div class="col-xs-6">
+    <div class="col-xs-6 col-xs-offset-3">
       <h1>Congratulations!</h1>
       <h2>Your Order Is Complete</h2>
       <hr>
@@ -12,29 +9,26 @@
       </div>
       <div ng-repeat = "item in confirm.cart">
         <li class="row" style="list-style-type: none;">
-          <div class="col-md-3">
+          <div class="col-xs-3">
             <h5>Brand:</h5>
             <h4>{{ item.brand }}</h4>
           </div>
-          <div class="col-md-3">
+          <div class="col-xs-3">
             <h5>Shoe:</h5>
             <h4>{{ item.name }}</h4>
           </div>
-          <div class="col-md-3">
+          <div class="col-xs-3">
             <h5>Size:</h5>
             <h4>{{ item.size }}</h4>
           </div>
-          <div class="col-md-3">
+          <div class="col-xs-3">
             <h5>Price:</h5>
             <h4>${{item.price}}</h4>
           </div>
         </li>
       </div>
-      <div class="col-md-12">
-        <div class="col-md-9">
-                <!-- //leave empty// -->
-        </div>
-        <div class="col-md-3">
+      <div class="col-xs-12">
+        <div class="col-xs-3 col-xs-offset-9">
           <div>
             <h5>Total:</h5>
           </div>
@@ -50,9 +44,6 @@
           <h4>{{ confirm.info.email }}</h4>
         </div>
       </div>
-    </div>
-    <div class="col-xs-3">
-      <!-- //leave empty -->
     </div>
   </div>
 </div>

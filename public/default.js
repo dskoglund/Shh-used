@@ -146,8 +146,7 @@ function CheckoutController(shoppingCart, $scope, checkoutInfo, $location, $anch
 
   $scope.submitCheckout = function() {
     $location.path('/confirm')
-    $location.hash('main-home')
-
+    $location.hash('main-home'
     checkoutInfo.userInformation.push({address: $scope.address, name: $scope.username, city: $scope.city, zip: $scope.zip, email: $scope.email, state: $scope.state})
     checkoutInfo.getUserInfo(checkoutInfo.userInformation)
     $anchorScroll()
@@ -156,7 +155,6 @@ function CheckoutController(shoppingCart, $scope, checkoutInfo, $location, $anch
   $scope.backToCart = function() {
     $location.path('/cart')
     $location.hash('main-home')
-
     $anchorScroll()
     $window.scrollBy(0, screenHeight)
   }

@@ -7,3 +7,7 @@ Landing Page Screen Shot:
 Store Screen Shot:
 
 ![screen shot 2016-11-08 at 10 09 45 am](https://cloud.githubusercontent.com/assets/21043184/20111181/2b28ffa0-a59c-11e6-8948-580759613296.png)
+
+Cart Screen Shot: 
+
+![screen shot 2016-11-08 at 10 12 12 am](https://cloud.githubusercontent.com/assets/21043184/20111206/4f37ab94-a59c-11e6-90b1-af9bca95ff86.png)

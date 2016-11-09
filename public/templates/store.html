@@ -1,6 +1,6 @@
 <div id="angular-store-div">
   <ul>
-    <li style="list-style-type: none;" class="col-xs-6 col-md-3" id="shoe-description" ng-repeat="shoe in store.shoesList | filter:search">
+    <li style="list-style-type: none;" class="col-xs-6 col-lg-3" id="shoe-description" ng-repeat="shoe in store.shoesList | filter:search">
       <div id="shoe-box">
         <div id="shoe-box-contents">
           <div  class="">
@@ -12,8 +12,8 @@
             <h5 id="shoe-size"> Size: {{ shoe.size }} </h5>
             <h5 id="shoe-price"> Price: ${{ shoe.price }} </h5>
             <div id="shoe-btn-div" class="">
-          </div>
-            <button id="shoe-btn" class="btn btn-primary" ng-click="store.addToCart(shoe)"> Add to Cart </button>
+              <button id="shoe-btn" class="btn btn-primary" ng-click="store.addToCart(shoe)"> Add to Cart </button>
+            </div>
           </div>
         </div>
       </div>

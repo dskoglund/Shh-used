@@ -104,6 +104,10 @@ width: 100%;
 }
 
 /* store shoe display*/
+#shoe-box {
+  width: 100%;
+  overflow: scroll;
+}
 #shoe-box:hover {
   background-color: lightblue;
 }
@@ -119,12 +123,6 @@ width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     margin: 10px;
-}
-#shoe-box {
-  padding: 10px;
-  min-height: 300px;
-  max-height: 300px;
-  overflow: scroll;
 }
 #shoe-brand {
   color: black;
@@ -151,14 +149,30 @@ width: 100%;
 }
 #remove-x {
   margin-top: 50px;
-  font-family: 'Roboto', sans-serif;
   color: red;
+  text-align: center;
+}
+#remove-x:hover {
+  size: 2em;
+  border-style: outset;
+  background-color: red;
+  color: black;
+}
+#remove-x:active {
+  border-style: inset;
 }
 #cart-shoe-image {
   width: 100%;
 }
 
+#home-view {
+  padding: 0;
+}
+
 /*view for templates*/
+#initial-scroll {
+  margin-bottom: 100px;
+}
 #angular-view {
   margin-bottom: 200px;
   padding-bottom: 200px;

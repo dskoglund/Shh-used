@@ -1,16 +1,17 @@
 <div id="angular-cart-div" class="container">
   <h1>Shopping Cart:</h1>
-  <div class="container">
+  <div class="col-xs-12">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-lg-2">
         <!-- leave this empty -->
       </div>
       <div id="cart-view" class="col-xs-12 col-md-8">
         <div id="cart-list" class="">
           <li class="row" style="list-style-type: none;" ng-repeat="item in cart.cart">
-            <div id="remove-x" class="col-xs-1">
-              <i ng-click="cart.removeFromCart(item)" class="fa fa-times fa-2x" aria-hidden="true">
-              <h5>Remove</h5></i>
+            <div  class="col-xs-1">
+              <i id="remove-x" ng-click="cart.removeFromCart(item)" class="fa fa-times fa-2x" aria-hidden="true">
+              <h5>Remove</h5>
+              </i>
             </div>
             <div  class="col-xs-3">
               <h5>Image:</h5>
@@ -47,7 +48,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-lg-2">
         <!-- leave this empty -->
       </div>
     </div>

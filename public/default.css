@@ -28,7 +28,7 @@ position: absolute;
 width: 100%;
 }
 #video {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 #jumbo-text {
   width: 100%;
@@ -158,25 +158,18 @@ width: 100%;
   text-align: center;
 }
 #remove-x:hover {
-  size: 2em;
-  border-style: outset;
-  background-color: red;
-  color: black;
-}
-#remove-x:active {
-  border-style: inset;
-}
-#remove-x:hover {
   color: black;
   border-radius: 50px;
   background-color: red;
   border-width: medium;
   border-style: outset;
+  padding: 5px;
 }
 #remove-x:active {
   border-radius: 50px;
   background-color: green;
   border-style: inset;
+  padding: 5px;
 }
 
 #cart-shoe-image {

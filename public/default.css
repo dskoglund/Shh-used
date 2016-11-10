@@ -198,6 +198,9 @@ width: 100%;
 #angular-cart-div {
   width: 100%;
 }
+#angular-confirm-div {
+  height: 100vh;
+}
 
 /*footer*/
 #footer {

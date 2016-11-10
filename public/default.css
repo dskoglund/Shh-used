@@ -31,9 +31,12 @@ width: 100%;
   opacity: 0.8;
 }
 #jumbo-text {
+  width: 100%;
+  margin: 0 auto;
   color: white;
-  position: relative;
-  padding-top: 30vh;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 #logo {
   margin-top: 0px;
@@ -104,6 +107,10 @@ width: 100%;
 }
 
 /* store shoe display*/
+#shoe-box {
+  width: 100%;
+  overflow: scroll;
+}
 #shoe-box:hover {
   background-color: lightblue;
 }
@@ -119,12 +126,6 @@ width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     margin: 10px;
-}
-#shoe-box {
-  padding: 10px;
-  min-height: 300px;
-  max-height: 300px;
-  overflow: scroll;
 }
 #shoe-brand {
   color: black;
@@ -153,8 +154,17 @@ width: 100%;
   border-radius: 50px;
   text-align: center;
   margin-top: 50px;
-  font-family: 'Roboto', sans-serif;
   color: red;
+  text-align: center;
+}
+#remove-x:hover {
+  size: 2em;
+  border-style: outset;
+  background-color: red;
+  color: black;
+}
+#remove-x:active {
+  border-style: inset;
 }
 #remove-x:hover {
   color: black;
@@ -180,8 +190,14 @@ width: 100%;
 #back-to-cart {
   margin-left: 5%;
 }
+#home-view {
+  padding: 0;
+}
 
 /*view for templates*/
+#initial-scroll {
+  margin-bottom: 100px;
+}
 #angular-view {
   margin-bottom: 200px;
   padding-bottom: 200px;

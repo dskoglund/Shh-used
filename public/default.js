@@ -10,7 +10,7 @@ app.config(['$routeProvider', '$locationProvider',
         controller: 'StoreController',
         controllerAs: 'store'
       })
-      .when('/details', {
+      .when('/detail', {
         templateUrl: 'templates/details.html',
         controller: 'DetailController',
         controllerAs: 'detail'

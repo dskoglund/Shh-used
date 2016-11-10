@@ -150,12 +150,35 @@ width: 100%;
   width: 100%;
 }
 #remove-x {
+  border-radius: 50px;
+  text-align: center;
   margin-top: 50px;
   font-family: 'Roboto', sans-serif;
   color: red;
 }
+#remove-x:hover {
+  color: black;
+  border-radius: 50px;
+  background-color: red;
+  border-width: medium;
+  border-style: outset;
+}
+#remove-x:active {
+  border-radius: 50px;
+  background-color: green;
+  border-style: inset;
+}
+
 #cart-shoe-image {
   width: 100%;
+}
+
+/*checkout*/
+#confirm-btn {
+  margin: 5%;
+}
+#back-to-cart {
+  margin-left: 5%;
 }
 
 /*view for templates*/

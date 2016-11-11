@@ -1,7 +1,7 @@
 # ShopSpot
 A shopping store app for the purchase of second hand shoes. This is a full MEAN stack application.
 
-This app can be accessed at https://gentle-refuge-44222.herokuapp.com/ or in the terminal with "nodemon ." at localhost:4000
+This app can be accessed at https://shh-used.herokuapp.com/ or in the terminal with "nodemon ." at localhost:4000
 
 
 Landing Page Screen Shot:
